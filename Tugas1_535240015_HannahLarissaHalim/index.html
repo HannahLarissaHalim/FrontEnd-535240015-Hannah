@@ -7,34 +7,24 @@
       harus ikutin lebar layar device (HP) atau lebar browser window (laptop/PC) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css"> <!-- external style sheet -->
-  <title>CV Hannah Larissa Halim</title>
+  <title>CV - Hannah Larissa Halim</title>
 </head>
 
 <body>
-  <!-- box 1 nama lengkap (juga header) -->
-  <header class="fullname-box">
-    <h1>HANNAH LARISSA HALIM</h1>
-  </header>
 
-  <!-- box 2 container cv -->
+  <!-- BOX 1 CONTAINER BOX2 CV -->
   <div class="cv-container">
 
-    <!-- bagian atas container utama (yang ada tulisan MY CV) -->
+    <!-- bagian atas container utama -->
     <div class="cv-container-header">
-      <span class="title">MY CV</span>
-      <!-- tombol2 dekoratif -->
-      <div class="decorative-buttons"> 
-        <button class="minimize"> − </button>
-        <button class="maximize"> □ </button>
-        <button class="close"> ✕ </button>
-      </div>
-    </div> <!-- penutup div cv-container-header -->
+      <h1 class="title">HANNAH LARISSA HALIM</h1>
+    </div> 
 
     <!-- body dari containernya yang untuk box aboutme, education, programming language, experience, contact -->
     <div class="cv-container-body">
 
-      <!-- BOX 3 TENTANG SAYA -->
-      <div class="default-box aboutme-box"> <!-- ada 2 class-->
+      <!-- BOX 2 TENTANG SAYA -->
+      <div class="default-box aboutme-box"> <!-- ada 2 class -->
 
         <!-- bagian atasnya (box-header) -->
         <div class="box-header">
@@ -47,21 +37,20 @@
           </div>
         </div> <!-- penutup div box-header -->
 
-        <!-- isi box 3 (box-body) -->
+        <!-- isi box 2 (box-body) -->
         <div class="box-body">
           <h3>TENTANG SAYA</h3>
-          <!-- untuk atur foto di kiri & paragraf tentang saya di kanan-->
-          <div class="box3-layout">
-            <img class="picture" src="picture.jpg" alt="Foto Profil"/>
             <p>
-              Mahasiswa Teknik Informatika
+              Mahasiswa Teknik Informatika yang tertarik pada hampir semua bidang IT, 
+              tetapi tidak mampu menguasai satu pun. 
+              Saya masih sangat tertarik dengan bidang ini, sih. 
+              Semoga tidak nt.
             </p>
-          </div> 
         </div> <!-- penutup div box-body -->
       </div> <!-- penutup div box 3 tentang saya -->
 
 
-      <!-- BOX 4 EDUCATION -->
+      <!-- BOX 3 EDUCATION -->
       <div class="default-box education-box">
 
         <div class="box-header">
@@ -77,21 +66,17 @@
         <div class="box-body">
           <h3>PENDIDIKAN</h3>
 
-          <div class="education-lists">
-            <h4>Universitas Tarumanagara (2024 – Sekarang)</h4>
-            <p class="sub-text">S1 Teknik Informatika</p>
-          </div>
+          <h4>Universitas Tarumanagara (2024 – Sekarang)</h4>
+          <p>S1 Teknik Informatika</p>
 
-          <div class="education-lists">
-            <h4>SMAS Kristen Pancaran Berkat (2021 – 2024)</h4>
-            <p class="sub-text">Jurusan MIPA</p>
-          </div>
+          <h4>SMAS Kristen Pancaran Berkat (2021 – 2024)</h4>
+          <p>Jurusan MIPA</p>
 
         </div> <!-- penutup div box-body -->
       </div> <!-- penutup div box 4 education -->
 
 
-      <!-- BOX 5 BAHASA PEMROGRAMAN -->
+      <!-- BOX 4 BAHASA PEMROGRAMAN -->
       <div class="default-box pgrmlang-box">
 
         <div class="box-header">
@@ -106,40 +91,19 @@
 
         <div class="box-body">
           <h3>BAHASA PEMROGRAMAN</h3>
-
-          <!-- 3 kolom x 2 baris -->
-          <div class="pgrmlang-grid">
-           
-            <div class="pgrmlang-icons">
-              <img src="icons/cpp.png" alt="C++"> 
-            </div>
-
-            <div class="pgrmlang-icons">
-              <img src="icons/java.png" alt="Java"> 
-            </div>
-
-            <div class="pgrmlang-icons">
-              <img src="icons/python.png" alt="Python"> 
-            </div>
-
-            <div class="pgrmlang-icons">
-              <img src="icons/javascript.png" alt="JavaScript"> 
-            </div>
-
-            <div class="pgrmlang-icons">
-              <img src="icons/php.png" alt="PHP"> 
-            </div>
-
-            <div class="pgrmlang-icons">
-              <img src="icons/dart.png" alt="Dart"> 
-            </div>
-           
-          </div> <!-- penutup div prgmlang-grid-->
+          <ul class="pgrmlang-list">
+            <li>C++</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>Dart</li>
+          </ul>
         </div> <!-- penutup div box-body -->
       </div> <!-- penutup div box 5 bahasa pemrograman -->
 
 
-      <!-- BOX 6 PENGALAMAN -->
+      <!-- BOX 5 PENGALAMAN -->
       <div class="default-box experience-box">
 
         <div class="box-header">
@@ -154,47 +118,24 @@
 
         <div class="box-body">
           <h3>PENGALAMAN</h3>
-
-          <div class="experience-list">
-            <h4>Asisten Dosen (Agustus 2025 - Desember 2025)</h4>
-            <p class="sub-text">Matkul Kalkulus Kelas TI D 2025</p>
-          </div>
-
+          <h4>Asisten Dosen (Agustus 2025 – Desember 2025)</h4>
+          <p>Mata Kuliah Kalkulus Kelas TI D 2025</p>
         </div> <!-- penutup div box-body -->
+
       </div> <!-- penutup div box 6 pengalaman -->
     </div> <!-- penutup div cv-container-body -->
 
-
-    <!-- box 7 informasi kontak (gada box) -->
-    <footer class="contact-footer contact-plain">
-      <h3>INFORMASI KONTAK</h3>
-
-      <div class="contact-rows">
-        <div class="row">
-          <span class="label">email:</span>
-          <a href="mailto:hannah.larissa@student.untar.ac.id">hannah.larissa@student.untar.ac.id</a>
-        </div>
-
-        <div class="row">
-          <span class="label">whatsapp:</span>
-          <span>+62 812-3456-7890</span>
-        </div>
-
-        <div class="row">
-          <span class="label">github:</span>
-          <span>github.com/username</span> 
-        </div>
-
-        <div class="row">
-          <span class="label">instagram:</span>
-          <span>@username</span> 
-        </div>
-      </div>
+    <footer>
+      <h3>Kontak</h3>
+      <ul>
+        <li>Email: <a href="mailto:hannah.535240015@stu.untar.ac.id">hannah.535240015@stu.untar.ac.id</a></li>
+        <li>WhatsApp: +62 812-9616-1702</li>
+        <li>GitHub: <a href="https://github.com/HannahLarissaHalim">HannahLarissaHalim</a></li>
+        <li>Instagram: <a href="https://instagram.com/hannahlrhl">@hannahlrhl</a></li>
+      </ul>
     </footer>
 
-
-
-  </div>
+  </div> <!-- penutup div cv container -->
 </body>
 </html>
 
