@@ -1,0 +1,199 @@
+body {
+  font-family: Arial, sans-serif;  
+  background:#Ff4081;
+  color:#000;         /* warna teks default */             
+  padding:15px;                   
+  min-height:100vh;     /* supaya tinggi body selalu setinggi layar walaupun isi webnya sedikit */
+}
+
+/* container cv utama */
+.cv-container {
+  background:#FFF8DC;    
+  border-style: solid; 
+  border-color: #000;  
+  border-width: 3px;   
+  border-radius:15px;     /* supaya sudutnya rounded */
+  overflow:hidden;        /* konten keluar dipotong */
+}
+
+/* header container utama (nama + tombol dekoratif) */
+.cv-container-header {
+  background:#FFCC00;  
+  padding-top:15px;
+  padding-bottom:15px;
+  padding-left:30px;
+  padding-right:30px;              
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #000;
+  display:flex;                   /* flexbox */
+  justify-content:space-between;  
+  align-items:center;             
+}
+
+/* nama saya */
+.cv-container-header .title {
+  font-weight:700;
+  font-size:20px;  
+  color:#000;     
+}
+
+/* tombol dekoratif */
+
+.decorative-buttons { 
+    display:flex;
+    gap:8px; 
+}
+
+.decorative-buttons button {
+  width:25px;
+  height:25px;        
+  border-radius:50%;               
+  border:2px solid #000;         
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:15px; 
+  cursor:pointer; 
+  color:#000;     
+}
+
+.minimize {
+    background:#FFD700;
+}  
+
+.maximize {
+    background:#32CD32;
+} 
+
+.close { 
+    background:#FF4444;
+}   
+
+.cv-container-body{
+  padding:20px;        
+  display:grid; /* grid layout */
+  gap:20px;            
+  grid-template-columns:1fr; 
+}
+
+/* media query */
+@media (min-width:768px){
+  .cv-container-body{ 
+    grid-template-columns:1fr 1fr; /* tablet ke atas: 2 kolom */
+  } 
+}
+
+/* desain box defaultnya (about, education, prgmlang, experience) */
+.default-box{
+  background:#fff;          
+  border:3px solid #000;   
+  border-radius:15px;      
+  overflow:hidden;          
+}
+
+/* header box yang ada www...net dan tombol dekoratif */
+.box-header {
+  background: #00bcd4;        
+  color: #000;               
+  padding: 10px 15px;         
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #000;
+  font-weight: 700;
+}
+
+/* body setiap box */
+.box-body {
+  padding: 15px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.box-body h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+/* tentang saya */
+.aboutme-box p {
+  text-align: justify;
+  margin: 0 0 10px 0;
+}
+
+/* pendidikan */
+.education-box h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.education-box p {
+  font-size: 15px;
+  margin: 0 0 14px 0;
+  color: #333;
+}
+
+/* bahasa pemrograman */
+.pgrmlang-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+.pgrmlang-list li {
+  margin-bottom: 6px;
+}
+
+/* pengalaman */
+.experience-box h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.experience-box p {
+  font-size: 15px;
+  margin: 0 0 14px 0;
+  color: #333;
+}
+
+/* footer kontak */
+footer {
+  margin: 20px;
+  padding: 10px 15px;
+  border-top: 3px solid #000;
+}
+
+footer h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+/* responsive hp kecil */
+@media (max-width: 360px) {
+  .pgrmlang-list { font-size: 14px; }
+}
+
+/* responsive desktop */
+@media (min-width: 1024px) {
+  body { padding: 20px; }
+  .cv-container-body { padding: 25px; gap: 25px; }
+}
