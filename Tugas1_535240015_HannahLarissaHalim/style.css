@@ -19,15 +19,18 @@ body {
 /* header container utama (nama + tombol dekoratif) */
 .cv-container-header {
   background:#FFCC00;  
+  /* padding */
   padding-top:15px;
   padding-bottom:15px;
   padding-left:30px;
-  padding-right:30px;              
+  padding-right:30px;       
+  /* border */    
   border-bottom-width: 3px;
   border-bottom-style: solid;
   border-bottom-color: #000;
-  display:flex;                   /* flexbox */
-  justify-content:space-between;  
+  /* pake flexbox supaya jadi row/boxnya kesamping (defaultnya flex-direction: row) */
+  display:flex;                   
+  justify-content:space-between; /* supaya ruang kosongnya rata di antara box */  
   align-items:center;             
 }
 
