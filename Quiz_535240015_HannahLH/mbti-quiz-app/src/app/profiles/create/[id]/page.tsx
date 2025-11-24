@@ -1,41 +1,54 @@
 import { Container, Card, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
-import prisma from '../../../../lib/prisma'; // Relative path ke src/lib/prisma.ts
+// impor prisma client. jalur relatifnya panjang karena dari dynamic route ke lib/
+import prisma from '../../../../lib/prisma';
+// notfound dari next/navigation, buat ngurusin kalo profilnya nggak ada
 import { notFound } from 'next/navigation';
 
+// interface buat nangkep parameter id dari url
 interface DetailPageProps {
   params: {
-    id: string;
+    id: string; // id-nya berupa string dari url, nanti harus diubah ke number
   };
 }
 
-// Server Component Fetching Data
+// fungsi server buat ambil detail profil pake prisma
 async function getProfileDetail(id: number) {
+  // cari data unik berdasarkan id
   const profile = await prisma.mbtiProfile.findUnique({
     where: { id },
   });
   return profile;
 }
 
+// komponen utama halaman detail. ini server component ya.
 export default async function ProfileDetailPage({ params }: DetailPageProps) {
+  // ubah id dari string url ke integer
   const id = parseInt(params.id);
+  // fetch profilnya
   const profile = await getProfileDetail(id);
 
   if (!profile) {
-    notFound(); // Mengarah ke not-found.tsx jika profil tidak ada
+    // kalo nggak ketemu di database, langsung arahin ke halaman 404 kita
+    notFound(); 
   }
 
-  // Contoh sederhana pemetaan fungsi kognitif berdasarkan 4 huruf
+  // peta sederhana buat nampilin ringkasan fungsi kognitif. ini hardcode/custom aja.
   const cognitiveFunctionsMap: Record<string, string> = {
-    I: 'Introversion', E: 'Extroversion',
-    N: 'Intuition', S: 'Sensing',
-    T: 'Thinking', F: 'Feeling',
-    J: 'Judging', P: 'Perceiving',
+    I: 'introversion', E: 'extroversion',
+    N: 'intuition', S: 'sensing',
+    T: 'thinking', F: 'feeling',
+    J: 'judging', P: 'perceiving',
   };
   
-  // Tipe MBTI dalam huruf besar
+  // pecah tipe mbti (misal 'intj') jadi array ['i', 'n', 't', 'j']
   const typeChars = profile.type.toUpperCase().split('');
-  const functions = typeChars.map(char => `${char}: ${cognitiveFunctionsMap[char] || 'Unknown'}`).join(' | ');
+  
+  // map array karakter tadi ke deskripsi fungsi kognitifnya
+  // tambahin (char: string) buat ngilangin error 'implicitly any' dari typescript
+  const functions = typeChars.map((char: string) => 
+    `${char}: ${cognitiveFunctionsMap[char] || 'unknown'}`
+  ).join(' | '); // gabungin lagi jadi string dipisahin ' | '
 
 
   return (
@@ -44,25 +57,29 @@ export default async function ProfileDetailPage({ params }: DetailPageProps) {
         <Card.Img 
             variant="top" 
             src={profile.imageUrl} 
-            alt={`Gambar ${profile.type}`} 
+            alt={`gambar ${profile.type}`} 
             style={{ height: '350px', objectFit: 'cover' }}
         />
         <Card.Body>
+          {/* judul & tipe */}
           <Card.Title className="display-5">{profile.name}</Card.Title>
-          <Card.Subtitle className="mb-4 text-muted">Tipe: **{profile.type}**</Card.Subtitle>
+          <Card.Subtitle className="mb-4 text-muted">tipe: **{profile.type}**</Card.Subtitle>
           
-          <p className="fw-bold mt-4">Ringkasan Fungsi Kognitif (Diperluas):</p>
+          {/* ringkasan fungsi kognitif yang dibahas */}
+          <p className="fw-bold mt-4">ringkasan fungsi kognitif (diperluas):</p>
           <Alert variant="info" className="p-2 small">
             {functions}
           </Alert>
 
-          <h5 className="mt-4">Deskripsi Lengkap:</h5>
+          {/* deskripsi lengkap profil dari database */}
+          <h5 className="mt-4">deskripsi lengkap:</h5>
           <p>{profile.deskripsi}</p>
           
           <hr />
+          {/* tombol back (ketentuan dynamic routing) */}
           <Link href="/profiles" passHref>
             <Button variant="secondary">
-              &larr; Kembali ke Daftar Profil
+              &larr; kembali ke daftar profil
             </Button>
           </Link>
         </Card.Body>

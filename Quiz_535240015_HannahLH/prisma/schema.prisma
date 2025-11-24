@@ -1,23 +1,30 @@
-// Konfigurasi Database (SQLite)
+// prisma/schema.prisma
+
+// --- konfigurasi database (ini wajib pake sqlite karena ketentuan soal)
 datasource db {
   provider = "sqlite"
+  // ini url koneksi database, diambil dari file .env
+  // hati-hati: setting 'url' begini cuma bisa di prisma versi < 7.0.0 ya!
   url      = env("DATABASE_URL")
 }
 
-// Konfigurasi Prisma Client
+// --- konfigurasi prisma client
 generator client {
+  // ini buat bikin kode client typescript yang kita pakai di src/lib/prisma.ts
   provider = "prisma-client-js"
 }
 
-// Model untuk menyimpan Profil MBTI buatan User (sesuai ketentuan CRUD)
+// --- model data utama (tabel di database)
+// ini buat nyimpen profil mbti kustom yang dibikin user (sesuai ketentuan crud)
 model MbtiProfile {
+  // id: kunci utama, integer, auto-increment (auto-nambah sendiri)
   id        Int      @id @default(autoincrement())
-  type      String   // Contoh: "INTJ", "ENFP"
-  name      String   // Nama Profil, misal: "Si Perencana Hebat"
-  deskripsi String   // Deskripsi panjang tentang profil
-  imageUrl  String   // Path gambar dari public/, misal: "/intj.png"
+  type      String   // tipe mbti (misal: "intj", "enfp")
+  name      String   // nama julukan profilnya
+  deskripsi String   // deskripsi panjang
+  imageUrl  String   // path gambar (misal: "/intj.png" dari public/)
   
-  // Timestamps
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  // timestamps: penting buat fitur sorting dan update
+  createdAt DateTime @default(now()) // otomatis diset saat data dibuat
+  updatedAt DateTime @updatedAt // otomatis diupdate saat data diubah
 }
