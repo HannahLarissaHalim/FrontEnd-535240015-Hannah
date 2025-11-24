@@ -1,0 +1,23 @@
+// Konfigurasi Database (SQLite)
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Konfigurasi Prisma Client
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Model untuk menyimpan Profil MBTI buatan User (sesuai ketentuan CRUD)
+model MbtiProfile {
+  id        Int      @id @default(autoincrement())
+  type      String   // Contoh: "INTJ", "ENFP"
+  name      String   // Nama Profil, misal: "Si Perencana Hebat"
+  deskripsi String   // Deskripsi panjang tentang profil
+  imageUrl  String   // Path gambar dari public/, misal: "/intj.png"
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
