@@ -1,6 +1,6 @@
 import { Container, Card, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
-import prisma from '../../../lib/prisma'; // Relative path ke src/lib/prisma.ts
+import prisma from '../../../../lib/prisma'; // Relative path ke src/lib/prisma.ts
 import { notFound } from 'next/navigation';
 
 interface DetailPageProps {

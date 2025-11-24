@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import prisma from '../../../lib/prisma';
+import prisma from '../../../../lib/prisma';
 
 // API ROUTE untuk mengambil semua profil MBTI (GET)
 export async function GET() {

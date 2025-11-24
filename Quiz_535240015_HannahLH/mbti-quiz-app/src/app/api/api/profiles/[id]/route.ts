@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import prisma from '../../../../lib/prisma'; // Relative path ke src/lib/prisma.ts
+import prisma from '../../../../../lib/prisma'; // Relative path ke src/lib/prisma.ts
 
 interface RouteProps {
   params: {
